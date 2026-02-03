@@ -23,12 +23,3 @@ The S1,1 results demonstrate:
 * Broadband characteristics suitable for 5G and radar applications.
 
 
-## Repository Structure
-* `vivaldiantenna.cst`: The main project file (CST Studio Suite 2025).
-* `/media`: Contains screenshots of the 3D model and S-parameter plots.
-* `.gitignore`: Configured to exclude heavy simulation data (ModelCache, Result folders).
-
-## How to Run
-1. Clone the repository.
-2. Open `vivaldiantenna.cst` with CST Studio Suite 2025 or later.
-3. Run the Transient Solver to recalculate the results if necessary.
