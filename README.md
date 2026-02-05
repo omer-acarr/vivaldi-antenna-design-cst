@@ -13,13 +13,6 @@ The design is fully parameterized to allow for easy optimization:
 * **k (Dielectric Constant):** 4.1
 * **Frequency Range:** 30 GHz to 60 GHz
 
-## Simulation Results
-The simulation was performed using the Transient Solver in CST Studio Suite.
 
-### S-Parameters (Return Loss)
-The S1,1 results demonstrate:
-* Strong impedance matching (below -10 dB) across the primary operating band.
-* A significant resonance peak observed at approximately 48.7 GHz with a return loss better than -20 dB.
-* Broadband characteristics suitable for 5G and radar applications.
 
 
