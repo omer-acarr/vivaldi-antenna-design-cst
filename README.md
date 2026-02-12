@@ -1,43 +1,54 @@
-# 30-60 GHz Ultra-Wideband Vivaldi Antenna: From Simulation to PCB Manufacturing
+# 📡 mmWave Vivaldi Antenna Design & Optimization (40-60 GHz)
 
-This repository contains the full design cycle of an ultra-wideband (UWB) Vivaldi antenna, covering **CST Studio Suite 2025** simulations and **Altium Designer** PCB layout/manufacturing files. The design is optimized for millimeter-wave (mmWave) applications, specifically targeting the Ka and V bands.
+This repository showcases a professional electromagnetic simulation project featuring a high-performance **Vivaldi (Tapered Slot) Antenna**. Designed for the millimeter-wave (mmWave) spectrum, the project was developed and analyzed using **CST Studio Suite 2025**.
 
-## 🚀 Project Overview
-Vivaldi antennas (Tapered Slot Antennas) are known for their high gain and stable radiation patterns. This project bridges the gap between electromagnetic simulation and physical realization by providing production-ready Gerber files on specialized high-frequency substrates.
+## 📝 Description
+The project focuses on the engineering transition from a standard transmission line to a directive radiating element on a high-dielectric substrate. The primary objective was to optimize the antenna geometry to achieve stable radiation characteristics and impedance matching at **48.7 GHz**. The design utilizes a microstrip-to-slotline transition, leveraging the **Taconic RF-60A** substrate for its stability in high-frequency applications.
 
-### Technical Specifications
-* **Frequency Range:** 30 GHz - 60 GHz
-* **Substrate:** Taconic RF-60A (lossy)
-    * **Permittivity ($\epsilon_r$):** 6.15
-    * **Loss Tangent ($\tan \delta$):** 0.0028
-    * **Thickness:** 0.2 mm
-* **Feed Mechanism:** Microstrip line transition to an exponential taper.
+Key milestones achieved in this project include:
+* Successful elimination of background PEC errors to enable Farfield analysis.
+* Parametric optimization of the exponential taper (k-factor) and flare aperture.
+* Correlation of E-Field distribution with physical radiation mechanisms.
 
 ---
 
-## 📊 Phase 1: Simulation (CST Studio Suite)
-The antenna geometry was parameterized and optimized for maximum bandwidth and impedance matching.
+## 🛠 Technical Specifications
+* **Substrate:** Taconic RF-60A (Lossy)
+    * **Relative Permittivity ($\epsilon_r$):** 6.15
+    * **Thickness (h):** 0.2 mm
+* **Design Frequency:** 48.7 GHz (Center)
+* **Operational Band:** 30 GHz - 60 GHz
+* **Solver:** Transient (Time Domain) Solver
 
-* **S-Parameters ($S_{11}$):** Achieved excellent matching below -10 dB across the entire 30-60 GHz band, with resonance points near 32 GHz and 48 GHz.
-* **Mesh Optimization:** Configured with ~13,440 cells to balance simulation accuracy and computational speed.
+
+
+## 📐 Optimized Parameters
+| Parameter | Value | Description |
+| :--- | :--- | :--- |
+| **subw** | 8.0 mm | Substrate Width (Aperture size) |
+| **sL** | 12.0 mm | Substrate Length (Directional focus) |
+| **k** | 0.3 | Exponential Taper Factor |
+| **MW** | 0.30 mm | Microstrip Width (50 Ohm Matching) |
 
 ---
 
-## 🛠 Phase 2: PCB Layout & Manufacturing (Altium Designer)
-The CST model was exported via DXF and reconstructed in Altium Designer to ensure a production-ready design.
+## 📊 Simulation Highlights
 
-### Key Layout Features
-* **Dual-Layer Structure:**
-    * **Top Layer:** 0.25 mm microstrip feed line with a dedicated 0.3mm x 0.5mm soldering pad for mmWave connectors.
-    * **Bottom Layer:** Exponentially tapered Vivaldi wings acting as the ground plane and radiator.
-* **Precision Alignment:** The microstrip-to-slotline transition was cross-verified in 3D to ensure perfect electromagnetic coupling at 60 GHz.
-* **Board Shape:** Optimized 12mm x 9mm form factor defined on the Mechanical layer for precise CNC routing.
+### 🔹 S-Parameters (Return Loss)
+The optimized design demonstrates multiple resonance points, achieving an S11 value below **-10 dB** throughout the 30-45 GHz band. This confirms efficient power delivery to the radiating aperture.
+* **Peak Performance:** -13.2 dB at ~44 GHz.
 
 
 
-### Manufacturing Package
-The repository includes a complete production folder containing:
-* **Gerber Files (RS-274X):** Top/Bottom copper, Solder Mask, and Board Outline.
-* **NC Drill Files:** Precise board cutout coordinates.
-* **Fabrication Notes:** Specifications for **Taconic RF-60A**, **0.2 mm thickness**, and **ENIG (Immersion Gold)** surface finish.
+### 🔹 Farfield & Radiation Patterns
+The Farfield analysis confirms an **End-fire** radiation pattern, crucial for directional communication.
+* **Directivity:** 4.908 dBi
+* **Main Lobe Direction:** 88.0°
+* **Angular Width (3 dB):** 89.0°
+* **Side Lobe Level:** -4.7 dB
+
+
+
+### 🔹 E-Field Visualization
+E-Field monitors at 40 GHz and 45 GHz verify the coupling mechanism where energy is guided through the tapered slot and radiated into free space.
 
